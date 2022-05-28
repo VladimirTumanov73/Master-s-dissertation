@@ -1,18 +1,23 @@
 import xml.etree.ElementTree as xml
 import xlwings as xw
 import time
+import os
 
 start_time = time.time()
 
-wb = xw.Book('FDTest1.xlsx')
-Sheets1 = wb.sheets[0]
-Sheets2 = wb.sheets[1]
-Sheets3 = wb.sheets[2]
-Sheets4 = wb.sheets[3]
-Sheets5 = wb.sheets[4]
-Sheets6 = wb.sheets[5]
 
 def module1(filename):
+    wb = xw.Book(filename)
+    Sheets1 = wb.sheets[0]
+    Sheets2 = wb.sheets[1]
+    Sheets3 = wb.sheets[2]
+    Sheets4 = wb.sheets[3]
+    Sheets5 = wb.sheets[4]
+
+    full_name = os.path.basename(filename)
+    name = os.path.splitext(full_name)[0]
+    namexml = name+".xml"
+
     # Start with the root element
     root = xml.Element("forestDeclaration")
     xml.register_namespace("d2p1", "http://rosleshoz.gov.ru/xmlns/cTypes")
@@ -209,12 +214,11 @@ def module1(filename):
 
     tree1 = xml.ElementTree(root)
 
-    with open("FD.xml", 'wb') as f:
+    with open(namexml, 'wb') as f:
         tree1.write(f, encoding='utf-8', xml_declaration=True)
 
 
 if __name__ == "__main__":
-    module1("FD.xml")
+    module1("FDTest1.xlsx")
+    print(time.time() - start_time, "seconds")
 
-
-print(time.time() - start_time, "seconds")
