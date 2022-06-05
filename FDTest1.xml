@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<forestDeclaration>
+ <number>1</number>
+ <date>19 апреля 2022</date>
+ <header>
+  <executiveAuthority>Минприроды Ульяновской области</executiveAuthority>
+  <period />
+  <d3p1:begin>30 апреля 2022</d3p1:begin>
+  <d3p1:end>29 апреля 2023</d3p1:end>
+  <partner>
+   <juridicalPerson>
+    <d4p1:name>Общество с ограниченной ответственностью «Яр Парк»</d4p1:name>
+    <d4p1:inn>ИНН 7325172333</d4p1:inn>
+   </juridicalPerson>
+  </partner>
+  <signerData>
+   <d3p1:employee>
+    <d3p1:first_name>Акимов Александр Васильевич</d3p1:first_name>
+    <d3p1:post>директор</d3p1:post>
+    <d3p1:basisAuthority>устав</d3p1:basisAuthority>
+   </d3p1:employee>
+  </signerData>
+  <contract>
+   <d3p1:type>Договор аренды лесного участка</d3p1:type>
+   <d3p1:number>1026</d3p1:number>
+   <d3p1:date>28 июля 2021</d3p1:date>
+  </contract>
+ </header>
+ <harvestingWood>
+  <row>
+   <specialPurpose> </specialPurpose>
+   <protectionCategory> </protectionCategory>
+   <location>
+    <forestry>None</forestry>
+    <subforestry>None</subforestry>
+    <quarter>None</quarter>
+    <taxationUnit>None</taxationUnit>
+    <cuttingArea>None</cuttingArea>
+   </location>
+   <area>None</area>
+   <formCutting>None</formCutting>
+   <typeCutting>None</typeCutting>
+   <farm>None</farm>
+   <tree>None</tree>
+   <unitType>None</unitType>
+   <volume>None</volume>
+  </row>
+  <usageType>None</usageType>
+ </harvestingWood>
+ <harvestingObject>
+  <row>
+   <object>None</object>
+   <objectNumber>None</objectNumber>
+   <measure>None</measure>
+   <location>
+    <forestry>None</forestry>
+    <subforestry>None</subforestry>
+    <quarter>None</quarter>
+    <taxationUnit>None</taxationUnit>
+   </location>
+   <area>None</area>
+   <formCutting>None</formCutting>
+   <typeCutting>None</typeCutting>
+   <farm>None</farm>
+   <tree>None</tree>
+   <unitType>куб.м</unitType>
+   <volume>None</volume>
+  </row>
+ </harvestingObject>
+ <OtherUsageTypes>
+  <row>
+   <specialPurpose> </specialPurpose>
+   <location>
+    <forestry>Ульяновское</forestry>
+    <subforestry>Красноярское</subforestry>
+    <quarter>5</quarter>
+    <taxationUnit>часть выдела  42, 44</taxationUnit>
+   </location>
+   <area>0.5325</area>
+   <resource>None</resource>
+   <unitType>None</unitType>
+   <volume>None</volume>
+   <formCutting>None</formCutting>
+   <typeCutting>None</typeCutting>
+   <tree>None</tree>
+   <volume>None</volume>
+  </row>
+  <usageType>для осуществления рекреационной деятельности</usageType>
+ </OtherUsageTypes>
+ <otherUsageObjects>
+  <row>
+   <object>Лесохозяйственный знак</object>
+   <objectNumber>None</objectNumber>
+   <measure>Установка</measure>
+   <location>
+    <forestry>Ульяновское</forestry>
+    <subforestry>Красноярское</subforestry>
+    <quarter>5</quarter>
+    <taxationUnit>42, 44</taxationUnit>
+   </location>
+   <unitType>га</unitType>
+   <volume>0.0009</volume>
+   <area>None</area>
+   <formCutting>None</formCutting>
+   <typeCutting>None</typeCutting>
+   <tree>None</tree>
+   <treeVolume>None</treeVolume>
+  </row>
+ </otherUsageObjects>
+</forestDeclaration>
