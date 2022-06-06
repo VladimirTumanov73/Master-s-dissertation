@@ -2,11 +2,14 @@ import xml.etree.ElementTree as xml
 import xlwings as xw
 import time
 import os
+# import threading
+# import multiprocessing
+# import shutil
+# import zipfile
 
-start_time = time.time()
 
-
-def module1(filename):
+def Creat_xml(filename):
+    start_time = time.time()
     wb = xw.Book(filename)
     Sheets1 = wb.sheets[0]
     Sheets2 = wb.sheets[1]
@@ -17,7 +20,7 @@ def module1(filename):
     full_name = os.path.basename(filename)
     name = os.path.splitext(full_name)[0]
     namexml = name+".xml"
-
+    control = []
     # Start with the root element
     root = xml.Element("forestDeclaration")
     xml.register_namespace("d2p1", "http://rosleshoz.gov.ru/xmlns/cTypes")
@@ -34,16 +37,20 @@ def module1(filename):
     header.append(period)
     d3p1_begin = xml.SubElement(header, "d3p1:begin")
     d3p1_begin.text = str(Sheets1.range('C9').options(index=False).value)
+    control.append(str(Sheets1.range('C9').options(index=False).value))
     d3p1_end = xml.SubElement(header, "d3p1:end")
     d3p1_end.text = str(Sheets1.range('C10').options(index=False).value)
+    control.append(str(Sheets1.range('C10').options(index=False).value))
     partner = xml.Element("partner")
     header.append(partner)
     juridicalPerson = xml.Element("juridicalPerson")
     partner.append(juridicalPerson)
     d4p1_name = xml.SubElement(juridicalPerson, "d4p1:name")
     d4p1_name.text = str(Sheets1.range('B12').options(index=False).value)
+    control.append(str(Sheets1.range('B12').options(index=False).value))
     d4p1_inn = xml.SubElement(juridicalPerson, "d4p1:inn")
     d4p1_inn.text = str(Sheets1.range('B13').options(index=False).value)
+    control.append(str(Sheets1.range('B13').options(index=False).value))
     signerData = xml.Element("signerData")
     header.append(signerData)
     d3p1_employee = xml.Element("d3p1:employee")
@@ -58,10 +65,13 @@ def module1(filename):
     header.append(contract)
     d3p1_type = xml.SubElement(contract, "d3p1:type")
     d3p1_type.text = str(Sheets1.range('C19').options(index=False).value)
+    control.append(str(Sheets1.range('C19').options(index=False).value))
     d3p1_number = xml.SubElement(contract, "d3p1:number")
     d3p1_number.text = str(Sheets1.range('C20').options(index=False).value)
+    control.append(str(Sheets1.range('C20').options(index=False).value))
     d3p1_date = xml.SubElement(contract, "d3p1:date")
     d3p1_date.text = str(Sheets1.range('C21').options(index=False).value)
+    control.append(str(Sheets1.range('C21').options(index=False).value))
 
     # HarvestingWood
     hW = xml.Element("harvestingWood")
@@ -212,13 +222,38 @@ def module1(filename):
     # Output
     xml.indent(root, space=' ', level=0)
 
-    tree1 = xml.ElementTree(root)
+    tree = xml.ElementTree(root)
 
     with open(namexml, 'wb') as f:
-        tree1.write(f, encoding='utf-8', xml_declaration=True)
+        tree.write(f, encoding='utf-8', xml_declaration=True)
 
-
-if __name__ == "__main__":
-    module1("FDTest1.xlsx")
     print(time.time() - start_time, "seconds")
 
+    return control
+    # src = os.path.realpath(namexml)
+    # root_dir, tail = os.path.split(src)
+    # shutil.make_archive("test", 'zip', "files")
+    # # print(os.path.dirname(namexml))
+    #
+    # with zipfile.ZipFile("test.zip", "a") as newzip:
+    #     newzip.write(namexml)
+
+if __name__ == "__main__":
+    file_name = "FDTest1.xlsx"
+    # print("Default")
+    Creat_xml(file_name)
+
+    # for f in range(1, 6):
+    #     print("Flow {}".format(f))
+    #     flow = threading.Thread(target=module1(file_name), args=(f, ''))
+    #     flow.start()
+    #
+    # processes = []
+    # for i in range(1, 7):
+    #     print("Proces {}".format(i))
+    #     p = multiprocessing.Process(target=module1(file_name), args=[i])
+    #     p.start()
+    #     processes.append(p)
+    #
+    # for p in processes:
+    #     p.join()
